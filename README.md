@@ -1,6 +1,6 @@
 # EvolutionTemplate
 
-Evolution Template is a template projet to aid the development of "Evolution" types of game.
+Evolution Template is a template project to aid the development of "Evolution" game types
 It can be easily setup by finding the "Assets/EvolutionTemplate/Settings/Game Library File".
 
 The game features:
