@@ -6,28 +6,26 @@ public class AdController : MonoBehaviour, IUnityAdsListener {
     [SerializeField]
     private string _rewardVideoId = "rewardedVideo";
     [SerializeField]
-    private string _androidGameId = "3928719";
+    private string _gameId = "3928719";
+#if UNITY_IOS
     [SerializeField]
-    private string _iOSGameId = "3928718";
+    private string _gameId = "3928718";
+#endif
     [SerializeField]
     private bool testMode = true;
 
     [Inject]
-    EventHandler _eventHandler;
+    IEventHandler _eventHandler;
 
     void Start()
     {
         Advertisement.AddListener(this);
 
-#if UNITY_ANDROID
-        Advertisement.Initialize(_androidGameId, testMode);
-#elif UNITY_IOS
-        Advertisement.Initialize(_iOSGameId, testMode);
-#endif
+        Advertisement.Initialize(_gameId, testMode);
     }
 
     [Inject]
-    public void Construct(EventHandler eventHandler)
+    public void Construct(IEventHandler eventHandler)
     {
         _eventHandler = eventHandler;
     }

@@ -14,7 +14,7 @@ public class FarmController : IInitializable, ITickable, IDisposable {
     EvolutionElement.Factory _elementFactory;
 
     [Inject]
-    EventHandler _eventHandler;
+    IEventHandler _eventHandler;
 
     private float lastSpawnTime;
 
@@ -80,7 +80,7 @@ public class FarmController : IInitializable, ITickable, IDisposable {
 
     private void CollectFarming(ElementType type, int coinQuantity)
     {
-        _eventHandler.TriggerEvent(EventType.FarmCoin, type, coinQuantity);
+        _eventHandler.TriggerEvent(EventType.FarmCurrency, type, CurrencyType.Coin, coinQuantity);
     }
     private void HandleUpgrade(ElementType type)
     {

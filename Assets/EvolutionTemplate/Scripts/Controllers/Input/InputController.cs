@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
-public class InputController : IInitializable, ITickable, IDisposable {
+public class InputController : IInputController {
     public void Dispose()
     {
     }

@@ -19,12 +19,12 @@ public class SkinObject : MonoBehaviour {
 
     private SkinItem _skinItem;
     private SkinScreen _skinScreen;
-    private EventHandler _eventHandler;
+    private IEventHandler _eventHandler;
     private bool _isSkinEquipped;
     private bool _hasSkin;
 
     [Inject]
-    void Constructor(EventHandler eventHandler)
+    void Constructor(IEventHandler eventHandler)
     {
         _eventHandler = eventHandler;
 

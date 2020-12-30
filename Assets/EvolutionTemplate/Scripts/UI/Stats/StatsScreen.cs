@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using Zenject;
 
 public class StatsScreen : DefaultScreen {
 
     StatsItem.Factory _statsFactory;
-    PlayerData _playerData;
+    IPlayerDataController _playerData;
     GameLibrary _gameLibrary;
 
     public ElementProperty ElementProperty { get; private set; }
 
     [Inject]
-    void Constructor(PlayerData playerData, StatsItem.Factory statsFactory, GameLibrary gameLibrary)
+    void Constructor(IPlayerDataController playerData, StatsItem.Factory statsFactory, GameLibrary gameLibrary)
     {
         _statsFactory = statsFactory;
         _playerData = playerData;
@@ -54,11 +55,14 @@ public class StatsScreen : DefaultScreen {
 
         foreach(ElementType type in Enum.GetValues(typeof(ElementType)))
         {
-            ElementStatistics statistics = null;
             ElementProperty elementProperty = _gameLibrary.GetLevelSettings(type);
 
-            if((int)type < _playerData.Records.Statistics.Count)
-                statistics = _playerData.Records.Statistics[(int)type];
+            IRecordsController records = _playerData.GetRecords();
+            List<ElementStatistics> fullStatistics = records.GetStatistics();
+            ElementStatistics statistics = null;
+
+            if((int)type < fullStatistics.Count)
+                statistics = fullStatistics[(int)type];
 
             statsItems[(int)type].Setup(elementProperty, statistics);
         }

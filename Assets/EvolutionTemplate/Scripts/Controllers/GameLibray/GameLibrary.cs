@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 [Serializable]
 public struct GameLibrary {
+
     [SerializeField]
     private FactoryTemplates _factoryTemplates;
     public FactoryTemplates FactoryTemplates

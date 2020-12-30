@@ -6,14 +6,14 @@ public class SkinScreen : DefaultScreen {
     private WardrobeElement _wardrobeElement;
 
 
-    PlayerData _playerData;
-    EventHandler _eventHandler;
+    IPlayerDataController _playerData;
+    IEventHandler _eventHandler;
     GameLibrary _gameLibrary;
     SkinObject.Factory _skinObjectFactory;
     SkinType _currentTryOnSkin;
 
     [Inject]
-    void Constructor(GameLibrary gameLibrary, SkinObject.Factory storeItemFactory, PlayerData playerData, EventHandler eventHandler)
+    void Constructor(GameLibrary gameLibrary, SkinObject.Factory storeItemFactory, IPlayerDataController playerData, IEventHandler eventHandler)
     {
         _gameLibrary = gameLibrary;
         _skinObjectFactory = storeItemFactory;
@@ -39,7 +39,7 @@ public class SkinScreen : DefaultScreen {
     }
     public override void OpenWindow()
     {
-        SkinType currentSkin = _playerData.CurrentActiveSKin;
+        SkinType currentSkin = _playerData.GetCurrentSkin();
         TrySkin(currentSkin);
 
         base.OpenWindow();
@@ -48,10 +48,11 @@ public class SkinScreen : DefaultScreen {
     public void InteractUseSkin(SkinType type)
     {
         _currentTryOnSkin = type;
+        SkinType currentSkin = _playerData.GetCurrentSkin();
 
         if(_playerData.HasSkin(type))
         {
-            bool isUsingSkin = _playerData.CurrentActiveSKin == type;
+            bool isUsingSkin = currentSkin == type;
             SkinType destinySkin;
 
             if(!isUsingSkin)

@@ -40,11 +40,11 @@ public class EvolutionElement : MonoBehaviour {
 
 
     //Injections
-    InputController _inputController;
+    IInputController _inputController;
     GameLibrary _gameLibrary;
-    EventHandler _eventHandler;
+    IEventHandler _eventHandler;
     ElementPoop.Factory _poopFactory;
-    PlayerData _playerData;
+    IPlayerDataController _playerData;
 
     //Internal
     private ElementStatus _status;
@@ -59,7 +59,7 @@ public class EvolutionElement : MonoBehaviour {
     }
 
     [Inject]
-    public void Construct(InputController inputController, GameLibrary gameLibrary, ElementPoop.Factory poopFactory, EventHandler eventHandler, PlayerData playerData)
+    public void Construct(IInputController inputController, GameLibrary gameLibrary, ElementPoop.Factory poopFactory, IEventHandler eventHandler, IPlayerDataController playerData)
     {
         _inputController = inputController;
         _gameLibrary = gameLibrary;
@@ -315,7 +315,7 @@ public class EvolutionElement : MonoBehaviour {
 
     private void CheckSkin()
     {
-        SkinType currentSkin = _playerData.CurrentActiveSKin;
+        SkinType currentSkin = _playerData.GetCurrentSkin();
 
         _elementSprite.SetSkin(currentSkin);
     }

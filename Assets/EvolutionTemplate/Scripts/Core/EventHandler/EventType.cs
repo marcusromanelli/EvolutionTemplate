@@ -1,14 +1,12 @@
 ﻿public enum EventType {
-    FarmCoin,
+    FarmCurrency,
     UpgradeLevel,
     Spawn,
     NewLevelUnlocked,
     ChangeSkin,
-    SpendCash,
-    SpendCoin,
+    SpendCurrency,
     PurchasedSkin,
     AdsReady,
     RewardVideoPlayed,
-    WinCoin,
-    WinCash
+    EarnCurrency,
 }

@@ -23,6 +23,8 @@ public struct SkinItem {
         }
     }
 
+
+    //This particular variable cannot be a generic type because Unity's inspector system does not support generic types :(
     [SerializeField]
     private CurrencyType _currencyType;
     public CurrencyType CurrencyType

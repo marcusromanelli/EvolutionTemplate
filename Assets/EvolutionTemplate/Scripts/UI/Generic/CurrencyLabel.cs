@@ -9,7 +9,7 @@ public class CurrencyLabel : MonoBehaviour
     private CurrencyType type;
 
     [Inject]
-    PlayerData _playerData;
+    IPlayerDataController _playerData;
     
     private Text _label;
 
@@ -24,18 +24,7 @@ public class CurrencyLabel : MonoBehaviour
 
     void CheckData()
     {
-        string text = "";
-
-        switch(type)
-        {
-
-            case CurrencyType.Cash:
-                text = _playerData.CashAmount.ToString();
-                break;
-            case CurrencyType.Coin:
-                text = _playerData.CoinAmount.ToString();
-                break;
-        }
+        string text = _playerData.GetCurrencyAmount(type).ToString();
 
         _label.text = text;
 

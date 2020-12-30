@@ -28,7 +28,7 @@ public class EncyclopediaScreen : DefaultScreen {
 
 
     GameLibrary _gameLibrary;
-    PlayerData _playerData;
+    IPlayerDataController _playerData;
     ElementType currentElement = ElementType.White;
 
     private void Awake()
@@ -44,7 +44,7 @@ public class EncyclopediaScreen : DefaultScreen {
         });
     }
     [Inject]
-    void Constructor(GameLibrary gameLibrary, PlayerData playerData)
+    void Constructor(GameLibrary gameLibrary, IPlayerDataController playerData)
     {
         _gameLibrary = gameLibrary;
         _playerData = playerData;

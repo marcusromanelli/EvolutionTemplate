@@ -12,7 +12,7 @@ public class InfoButton : MonoBehaviour {
     private Button _button;
 
     Animation _animation;
-    EventHandler _eventHandler;
+    IEventHandler _eventHandler;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class InfoButton : MonoBehaviour {
     }
 
     [Inject]
-    void Constructor(EventHandler eventHandler)
+    void Constructor(IEventHandler eventHandler)
     {
         _eventHandler = eventHandler;
 

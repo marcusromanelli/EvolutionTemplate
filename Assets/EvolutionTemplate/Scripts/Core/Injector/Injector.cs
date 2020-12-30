@@ -16,7 +16,7 @@ public class Injector : MonoInstaller {
 
         Container.BindInterfacesAndSelfTo<InputController>().AsSingle();
 
-        Container.BindInterfacesAndSelfTo<PlayerData>().AsSingle();
+        Container.BindInterfacesAndSelfTo<PlayerDataController<RecordsController, SkinController, CurrencyController, WalletController<CurrencyController>>>().AsSingle();
 
         Container.BindInterfacesAndSelfTo<FarmController>().AsSingle();
 
@@ -48,7 +48,7 @@ public class Injector : MonoInstaller {
 
 
         Container.BindExecutionOrder<EventHandler>(-20);
-        Container.BindExecutionOrder<PlayerData>(-10);
+        Container.BindExecutionOrder<IPlayerDataController>(-10);
         Container.BindExecutionOrder<FarmController>(-5);
     }
 }

@@ -20,7 +20,7 @@ public class RewardButton : MonoBehaviour {
     private int _rewardValue;
 
     [Inject]
-    EventHandler _eventHandler;
+    IEventHandler _eventHandler;
 
     private float _lastRewardTime;
     private bool _adsReady;
@@ -31,7 +31,7 @@ public class RewardButton : MonoBehaviour {
     }
 
     [Inject]
-    public void Construct(EventHandler eventHandler)
+    public void Construct(IEventHandler eventHandler)
     {
         _eventHandler = eventHandler;
 
@@ -101,17 +101,6 @@ public class RewardButton : MonoBehaviour {
     {
         _lastRewardTime = Time.time;
 
-        EventType eventType = EventType.WinCoin;
-        switch(_currencyType)
-        {
-            case CurrencyType.Cash:
-                eventType = EventType.WinCash;
-                break;
-            case CurrencyType.Coin:
-                eventType = EventType.WinCoin;
-                break;
-        }
-
-        _eventHandler.TriggerEvent(eventType, _rewardValue);
+        _eventHandler.TriggerEvent(EventType.EarnCurrency, _currencyType, _rewardValue);
     }
 }

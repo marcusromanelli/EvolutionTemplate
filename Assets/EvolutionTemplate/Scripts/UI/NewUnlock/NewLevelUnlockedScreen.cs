@@ -13,11 +13,11 @@ public class NewLevelUnlockedScreen : DefaultScreen {
     [SerializeField]
     private Text _nameLabel;
 
-    EventHandler _eventHandler;
+    IEventHandler _eventHandler;
     GameLibrary _gameLibrary;
 
     [Inject]
-    void Constructor(EventHandler eventHandler, GameLibrary gameLibrary)
+    void Constructor(IEventHandler eventHandler, GameLibrary gameLibrary)
     {
         _eventHandler = eventHandler;
         _gameLibrary = gameLibrary;

@@ -1,22 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class ElementsRecords {
-    EventHandler _eventHandler;
-
+public class RecordsController : IRecordsController {
     private List<ElementStatistics> _statistics;
-    public List<ElementStatistics> Statistics
+    
+    public RecordsController()
     {
-        get
-        {
-            return _statistics;
-        }
-    }
-
-    public ElementsRecords(EventHandler eventHandler)
-    {
-        _eventHandler = eventHandler;
-
         _statistics = new List<ElementStatistics>();
         AddNewType(); //Add default for "level 1" element
     }
@@ -58,5 +47,10 @@ public class ElementsRecords {
         ElementStatistics elementStatistics = RetrieveStatistics(type);
 
         elementStatistics.AddCoinFarmCount(quantity);
+    }
+
+    public List<ElementStatistics> GetStatistics()
+    {
+        return _statistics;
     }
 }
