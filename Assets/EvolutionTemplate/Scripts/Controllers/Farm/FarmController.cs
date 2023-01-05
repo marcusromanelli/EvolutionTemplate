@@ -18,7 +18,7 @@ public class FarmController : IInitializable, ITickable, IDisposable {
 
     private float _lastSpawnTime;
     private int _unopenedCrates;
-
+    private bool isLoggedIn;
 
     public void Dispose()
     {
@@ -27,6 +27,9 @@ public class FarmController : IInitializable, ITickable, IDisposable {
     public void Initialize()
     {
         _lastSpawnTime = Time.time;
+
+        _eventHandler.onLoggedIn += HandleLogin;
+        _eventHandler.onLoggedIn += HandleLogout;
 
         _eventHandler.onSpawnElement += HandleSpawnElement;
 
@@ -66,7 +69,7 @@ public class FarmController : IInitializable, ITickable, IDisposable {
         var hasCooldown = Time.time - _lastSpawnTime >= _farmSettings.ElementSpawnTime;
         var hasAvailableCratesSlot = _unopenedCrates <= _farmSettings.MaxAmountOfAwaitingCrates;
 
-        return hasCooldown && hasAvailableCratesSlot;
+        return isLoggedIn && hasCooldown && hasAvailableCratesSlot;
     }
 
     private Vector3 GetRandomPosition()
@@ -101,5 +104,17 @@ public class FarmController : IInitializable, ITickable, IDisposable {
         _unopenedCrates--;
 
         _unopenedCrates = Mathf.Clamp(_unopenedCrates, 0, _unopenedCrates);
+    }
+
+    private void HandleLogin()
+    {
+        isLoggedIn = true;
+    }
+
+    private void HandleLogout()
+    {
+        isLoggedIn = false;
+        _unopenedCrates = 0;
+        _lastSpawnTime = 0;
     }
 }

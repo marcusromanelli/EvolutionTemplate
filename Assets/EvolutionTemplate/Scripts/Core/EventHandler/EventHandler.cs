@@ -7,6 +7,34 @@ using Zenject;
 /// </summary>
 public class EventHandler : IEventHandler
 {
+    public event OnEventTrigger _onLoggedOut;
+    public event OnEventTrigger onLoggedOut
+    {
+        add
+        {
+            _onLoggedOut += value;
+        }
+
+        remove
+        {
+            _onLoggedOut -= value;
+        }
+    }
+
+    public event OnEventTrigger _onLoggedIn;
+    public event OnEventTrigger onLoggedIn
+    {
+        add
+        {
+            _onLoggedIn += value;
+        }
+
+        remove
+        {
+            _onLoggedIn -= value;
+        }
+    }
+
     public event OnEventTrigger<CurrencyType, int> _onSpendCurrency;
     public event OnEventTrigger<CurrencyType, int> onSpendCurrency
     {
@@ -308,5 +336,15 @@ public class EventHandler : IEventHandler
     public void PurchaseSkin(SkinType skin)
     {
         _onPurchasedSkin?.Invoke(skin);
+    }
+
+    public void LogIn()
+    {
+        _onLoggedIn?.Invoke();
+    }
+
+    public void LogOut()
+    {
+        _onLoggedOut?.Invoke();
     }
 }

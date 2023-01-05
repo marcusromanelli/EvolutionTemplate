@@ -12,6 +12,8 @@ public class Injector : MonoInstaller {
 
     public override void InstallBindings()
     {
+        Container.BindInterfacesAndSelfTo<PlayFabLoginController>().AsSingle();
+
         Container.BindInterfacesAndSelfTo<EventHandler>().AsSingle();
 
         Container.BindInterfacesAndSelfTo<InputController>().AsSingle();
@@ -47,6 +49,7 @@ public class Injector : MonoInstaller {
 
 
 
+        Container.BindExecutionOrder<ILoginController>(-30);
         Container.BindExecutionOrder<EventHandler>(-20);
         Container.BindExecutionOrder<IPlayerDataController>(-10);
         Container.BindExecutionOrder<FarmController>(-5);

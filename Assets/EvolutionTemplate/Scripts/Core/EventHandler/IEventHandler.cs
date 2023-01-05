@@ -21,6 +21,8 @@ public interface IEventHandler : IInitializable, ITickable, IDisposable
     public event OnEventTrigger<SkinType> onPurchasedSkin;
     public event OnEventTrigger onAdsReady;
     public event OnEventTrigger onRewardVideoPlayed;
+    public event OnEventTrigger onLoggedIn;
+    public event OnEventTrigger onLoggedOut;
 
     public void SpendCurrency(CurrencyType currencyType, int amount);
     public void EarnCurrency(CurrencyType currencyType, int amount);
@@ -33,4 +35,6 @@ public interface IEventHandler : IInitializable, ITickable, IDisposable
     public void PurchaseSkin(SkinType skin);
     public void AdsReady();
     public void RewardVideoPlayed();
+    public void LogIn();
+    public void LogOut();
 }
