@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf6a4c268fe42347ab0b422f85f3d2c, type: 3}
+  m_Name: Game Library File
+  m_EditorClassIdentifier: Assembly-CSharp::GameLibraryScriptable
+  GameLibrary:
+    _factoryTemplates:
+      _evolutionElementPrefab: {fileID: 3964922670259331923, guid: 06f2905bad51d1e489081696061f8600,
+        type: 3}
+      _poopPrefab: {fileID: 8846140536460553347, guid: fbe0320f7c0fe384e94a4bc49347af99,
+        type: 3}
+      _storeObjectPrefab: {fileID: 8189867102487058392, guid: 2579182af4aa5534f857a9ca0709a3a0,
+        type: 3}
+      _skinObjectPrefab: {fileID: 6216997361588641685, guid: 955df4d66d89a65459e391a6c4998dda,
+        type: 3}
+      _boxPrefab: {fileID: 7719259195490502639, guid: b3e413d60e93674459a27f9c1b3a604f,
+        type: 3}
+      _statsObjectPrefab: {fileID: 6719528195017423069, guid: 8dc08dac14d418b46b32c25fd915b78a,
+        type: 3}
+    _elementSettings:
+    - _name: White Cat
+      _description: A white cat!
+      _type: 0
+      _sprite: {fileID: -6092713175895086975, guid: 3d1a24a2b535a1d408c407013b52ed35,
+        type: 3}
+      _prefab: {fileID: -6897183917351732238, guid: a4b9b607b493b8e41bfaf036286c7ced,
+        type: 3}
+      _coinCoolDown: 5
+      _coinFarmQuantity: 1
+      _walkSpeed: 2.5
+      _flySpeed: 15
+      _movementRadius: 1
+      _minWanderAwait: 2
+    - _name: Black Cat
+      _description: A.. black cat (?)
+      _type: 1
+      _sprite: {fileID: 128430097616853948, guid: 3d1a24a2b535a1d408c407013b52ed35,
+        type: 3}
+      _prefab: {fileID: 5204763961607480369, guid: bad7a18153fe00142969df918a82f367,
+        type: 3}
+      _coinCoolDown: 5
+      _coinFarmQuantity: 1
+      _walkSpeed: 2.5
+      _flySpeed: 15
+      _movementRadius: 1
+      _minWanderAwait: 2
+    - _name: Orange Cat
+      _description: Dude these are just cats.
+      _type: 2
+      _sprite: {fileID: 6080879408675270563, guid: 3d1a24a2b535a1d408c407013b52ed35,
+        type: 3}
+      _prefab: {fileID: -1894975263536901866, guid: d69d454091a15a4478a5c4cc41fdd67a,
+        type: 3}
+      _coinCoolDown: 5
+      _coinFarmQuantity: 1
+      _walkSpeed: 2.5
+      _flySpeed: 15
+      _movementRadius: 1
+      _minWanderAwait: 2
+    - _name: Sylvester Cat
+      _description: Give up please.
+      _type: 3
+      _sprite: {fileID: -3586689733574509650, guid: 3d1a24a2b535a1d408c407013b52ed35,
+        type: 3}
+      _prefab: {fileID: -261238856771816738, guid: 735bef66254c01843a35dddcaa84f1d1,
+        type: 3}
+      _coinCoolDown: 5
+      _coinFarmQuantity: 1
+      _walkSpeed: 2.5
+      _flySpeed: 15
+      _movementRadius: 1
+      _minWanderAwait: 2
+    _storeData:
+    - _uid: SmallAmount
+      _type: 0
+      _sprite: {fileID: 7749154333711171376, guid: 32928550fa0d49d4a9a2d87d3fddb4f2,
+        type: 3}
+      _description: A small amount of ca$h.
+      _price: 1.99
+    - _uid: MediumAmount
+      _type: 1
+      _sprite: {fileID: -6570961689405082038, guid: 32928550fa0d49d4a9a2d87d3fddb4f2,
+        type: 3}
+      _description: A medium amount of ca$h.
+      _price: 5.99
+    - _uid: BigAmount
+      _type: 2
+      _sprite: {fileID: -6604377424452486861, guid: 32928550fa0d49d4a9a2d87d3fddb4f2,
+        type: 3}
+      _description: A big amount of ca$h!!1one
+      _price: 49.99
+    _skinData:
+    - _name: Santa Hat
+      _type: 1
+      _currencyType: 1
+      _sprite: {fileID: 21300000, guid: 84ebb1d2bcda11f4f93a68a8a86a284f, type: 3}
+      _price: 5
+    - _name: Cowboy Hat
+      _type: 2
+      _currencyType: 1
+      _sprite: {fileID: 21300000, guid: 47cf70938f31d38408f9ee25565c0154, type: 3}
+      _price: 10
+    - _name: Red Bow Tie
+      _type: 3
+      _currencyType: 0
+      _sprite: {fileID: 21300000, guid: 45ac14e3f1c56c9428175d3caba0bd7a, type: 3}
+      _price: 1000
+  FarmSettings:
+    SpawnArea:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 1
+      height: 2
+    ElementSpawnTime: 5
+    MaxAmountOfAwaitingCrates: 10
